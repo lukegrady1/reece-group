@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { Navbar } from '@/components/layout/Navbar'
+import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -19,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to content</a>
+        <Navbar />
         <main id="main-content">{children}</main>
+        <Footer />
       </body>
     </html>
   )
