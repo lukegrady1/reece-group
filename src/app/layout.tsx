@@ -4,8 +4,16 @@ import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://reecegroupllc.com'),
   title: 'Reece Group LLC | Licensed Electrician — Worcester, MA',
   description: 'Reece Group LLC provides expert electrical services across Massachusetts.',
+  openGraph: {
+    images: [{ url: '/logo.PNG', width: 1200, height: 630, alt: 'Reece Group LLC' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/logo.PNG'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

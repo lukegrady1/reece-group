@@ -348,29 +348,24 @@ export function AboutContent() {
           Based in Worcester, MA, we proudly serve all 351 cities and towns across the Commonwealth — with a focus on Central Massachusetts including Shrewsbury, Northborough, Westborough, Holden, Spencer, Leicester, Auburn, and beyond. No matter where you are in Massachusetts, we&apos;re ready to help.
         </p>
 
-        {/* Google Maps placeholder */}
-        {/* TODO: Replace with Google Maps iframe */}
+        {/* Google Maps Embed */}
         <div
           style={{
-            background: 'var(--color-surface-2)',
             border: '1px solid var(--color-border)',
             height: '400px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            overflow: 'hidden',
           }}
         >
-          <span
-            style={{
-              fontFamily: '"DM Sans", system-ui, sans-serif',
-              fontSize: '11px',
-              color: 'var(--color-ink-faint)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-            }}
-          >
-            [ GOOGLE MAPS EMBED ]
-          </span>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188820.18498128642!2d-72.05869645!3d42.2625931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e406585a2a8b0d%3A0x9e137d7a12d3b55a!2sWorcester%2C%20MA!5e0!3m2!1sen!2sus!4v1700000000000"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Reece Group LLC service area — Worcester, MA"
+          />
         </div>
       </section>
 

@@ -39,6 +39,7 @@ export function Footer() {
               { label: 'Home', path: '/' },
               { label: 'Services', path: '/services' },
               { label: 'About', path: '/about' },
+              { label: 'Blog', path: '/blog' },
               { label: 'Contact', path: '/contact' },
             ].map(link => (
               <Link
