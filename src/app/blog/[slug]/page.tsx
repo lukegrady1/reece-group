@@ -15,6 +15,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.seoTitle,
     description: post.seoDescription,
     alternates: { canonical: `https://reecegroupllc.com/blog/${post.slug}` },
+    openGraph: {
+      title: post.seoTitle,
+      description: post.seoDescription,
+      type: 'article',
+      url: `https://reecegroupllc.com/blog/${post.slug}`,
+      images: [{ url: '/logo.PNG', width: 1200, height: 630, alt: 'Reece Group LLC' }],
+    },
+    twitter: { card: 'summary_large_image', images: ['/logo.PNG'] },
   }
 }
 

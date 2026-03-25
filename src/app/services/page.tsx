@@ -12,8 +12,9 @@ export const metadata: Metadata = {
     description: 'From panel upgrades to EV charger installation, Reece Group LLC offers comprehensive electrical services. Licensed & insured. Serving all of Massachusetts.',
     type: 'website',
     url: 'https://reecegroupllc.com/services',
+    images: [{ url: '/logo.PNG', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: ['/logo.PNG'] },
 }
 
 export default function ServicesPage() {
