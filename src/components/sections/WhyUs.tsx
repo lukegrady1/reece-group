@@ -14,7 +14,7 @@ const differentiators = [
 const checklist = [
   'Same-day and emergency service available',
   'Responsive communication start to finish',
-  'Fully licensed & insured — [State] Lic #9036A1',
+  'Fully licensed & insured — MA Lic #9036A1',
 ]
 
 export function WhyUs() {
