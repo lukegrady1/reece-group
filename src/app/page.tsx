@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     description: 'Reece Group LLC provides expert electrical services across Massachusetts. Residential, commercial, panel upgrades & EV chargers. Call for a free estimate.',
     type: 'website',
     url: 'https://reecegroupllc.com/',
-    images: [{ url: '/logo.PNG', width: 1200, height: 630, alt: 'Reece Group LLC' }],
+    images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
-  twitter: { card: 'summary_large_image', images: ['/logo.PNG'] },
+  twitter: { card: 'summary_large_image', images: ['/reece-group-og.png'] },
 }
 
 export default function Home() {

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
     description: 'Electrical tips, safety guides, and local resources for Massachusetts homeowners and businesses from Reece Group LLC.',
     type: 'website',
     url: 'https://reecegroupllc.com/blog',
-    images: [{ url: '/logo.PNG', width: 1200, height: 630, alt: 'Reece Group LLC' }],
+    images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
-  twitter: { card: 'summary_large_image', images: ['/logo.PNG'] },
+  twitter: { card: 'summary_large_image', images: ['/reece-group-og.png'] },
 }
 
 export default function BlogPage() {

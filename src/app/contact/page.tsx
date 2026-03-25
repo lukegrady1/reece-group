@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     description: 'Get a free estimate from Reece Group LLC. Call, email, or fill out our contact form. Serving Worcester, Central Massachusetts, and all 351 MA cities and towns.',
     type: 'website',
     url: 'https://reecegroupllc.com/contact',
-    images: [{ url: '/logo.PNG', width: 1200, height: 630, alt: 'Reece Group LLC' }],
+    images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
-  twitter: { card: 'summary_large_image', images: ['/logo.PNG'] },
+  twitter: { card: 'summary_large_image', images: ['/reece-group-og.png'] },
 }
 
 export default function ContactPage() {
