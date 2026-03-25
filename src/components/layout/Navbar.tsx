@@ -57,7 +57,7 @@ export function Navbar() {
           }}
         >
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: 'none' }} aria-label="Reece Group LLC — Home">
+          <Link href="/" style={{ textDecoration: 'none' }} aria-label="Reece Group LLC — Home" onClick={e => { if (pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) } }}>
             <img
               src="/logo.PNG"
               alt="Reece Group LLC"
@@ -74,6 +74,7 @@ export function Navbar() {
                 <Link
                   key={link.path}
                   href={link.path}
+                  onClick={e => { if (link.path === '/' && pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) } }}
                   style={{
                     fontFamily: '"DM Sans", system-ui, sans-serif',
                     fontWeight: 600,
@@ -204,7 +205,7 @@ export function Navbar() {
                     <Link
                       key={link.path}
                       href={link.path}
-                      onClick={() => setMenuOpen(false)}
+                      onClick={e => { if (link.path === '/' && pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) } setMenuOpen(false) }}
                       style={{
                         fontFamily: '"Fraunces", serif',
                         fontWeight: 700,
