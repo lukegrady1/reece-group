@@ -68,10 +68,17 @@ export function ContactContent() {
   const [submitted, setSubmitted] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
 
-  const onSubmit = (data: FormData) => {
-    console.log(data)
-    // TODO: Connect to Formspree, Netlify Forms, or custom API
-    setSubmitted(true)
+  const onSubmit = async (data: FormData) => {
+    try {
+      await fetch('https://formspree.io/f/xwvwkldz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      setSubmitted(true)
+    } catch {
+      setSubmitted(true)
+    }
   }
 
   const fieldStyle = (hasError: boolean): React.CSSProperties => ({

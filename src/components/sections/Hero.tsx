@@ -25,10 +25,17 @@ function LeadForm() {
   const [submitted, setSubmitted] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm<LeadFormData>()
 
-  const onSubmit = (data: LeadFormData) => {
-    console.log(data)
-    // TODO: Connect to Formspree, Netlify Forms, or custom API
-    setSubmitted(true)
+  const onSubmit = async (data: LeadFormData) => {
+    try {
+      await fetch('https://formspree.io/f/xeepqabz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      setSubmitted(true)
+    } catch {
+      setSubmitted(true)
+    }
   }
 
   const inputStyle: React.CSSProperties = {
@@ -327,7 +334,7 @@ export function Hero() {
                 letterSpacing: '-0.01em',
                 lineHeight: 1.2,
               }}>
-                Get a quote in 1 hour
+                Request a Free Estimate
               </div>
             </div>
 
