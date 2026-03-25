@@ -20,8 +20,6 @@ interface ServiceSectionProps {
 function ServiceSection({ service, index }: ServiceSectionProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
-  const isReversed = index % 2 !== 0
-
   return (
     <div ref={ref}>
       <div
@@ -30,14 +28,13 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
           margin: '0 auto',
           padding: 'clamp(48px, 6vw, 96px) 24px',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: '1fr',
           gap: '64px',
           alignItems: 'center',
-          direction: isReversed ? 'rtl' : 'ltr',
         }}
         className="service-section-grid"
       >
-        {/* Image placeholder */}
+        {/* TODO: Add service photos back once available
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -55,27 +52,16 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
               justifyContent: 'center',
             }}
           >
-            {/* TODO: Replace with real project photo <img> */}
-            <span
-              style={{
-                fontFamily: '"DM Sans", system-ui, sans-serif',
-                fontSize: '11px',
-                color: 'var(--color-ink-faint)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-              }}
-            >
-              [ PHOTO — {service.title.toUpperCase()} ]
-            </span>
+            <img src={service.image} alt={service.title} />
           </div>
         </motion.div>
+        */}
 
         {/* Content */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
-          style={{ direction: 'ltr' }}
         >
           <AnnotationLabel index={service.number} text={service.title.split(' ')[0].toUpperCase()} />
           <h3

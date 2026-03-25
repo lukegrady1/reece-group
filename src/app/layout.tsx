@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://reecegroupllc.com'),
   title: 'Reece Group LLC | Licensed Electrician — Worcester, MA',
   description: 'Reece Group LLC provides expert electrical services across Massachusetts.',
+  icons: {
+    icon: '/favicon.PNG',
+  },
   openGraph: {
     images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
