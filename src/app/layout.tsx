@@ -36,10 +36,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
         <noscript>
-          <style>{`
-            [style*="opacity: 0"] { opacity: 1 !important; }
-            [style*="transform"] { transform: none !important; }
-          `}</style>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                [style*="opacity: 0"], [style*="opacity:0"] {
+                  opacity: 1 !important;
+                  transform: none !important;
+                  filter: none !important;
+                }
+              `,
+            }}
+          />
         </noscript>
       </head>
       <body>
