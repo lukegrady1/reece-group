@@ -35,19 +35,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..500;1,9..40,300..500&family=Raleway:wght@700;800&display=swap"
           rel="stylesheet"
         />
-        <noscript>
-          <style
-            dangerouslySetInnerHTML={{
-              __html: `
-                [style*="opacity: 0"], [style*="opacity:0"] {
-                  opacity: 1 !important;
-                  transform: none !important;
-                  filter: none !important;
-                }
-              `,
-            }}
-          />
-        </noscript>
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to content</a>

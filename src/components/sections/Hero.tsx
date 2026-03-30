@@ -3,6 +3,7 @@
 import { useState } from 'react'
 // Link import removed — uses <a> tags instead
 import { motion } from 'framer-motion'
+import { useHydrated } from '@/hooks/useHydrated'
 import { useForm } from 'react-hook-form'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
 
@@ -151,6 +152,8 @@ function LeadForm() {
 }
 
 export function Hero() {
+  const hydrated = useHydrated()
+  const h = hydrated
   return (
     <section
       style={{
@@ -179,7 +182,7 @@ export function Hero() {
         {/* Left: text */}
         <div>
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={h ? { opacity: 0, y: 12 } : { opacity: 1 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -187,7 +190,7 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 16 }}
+            initial={h ? { opacity: 0, y: 16 } : { opacity: 1 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             style={{
@@ -204,7 +207,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 12 }}
+            initial={h ? { opacity: 0, y: 12 } : { opacity: 1 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             style={{
@@ -221,7 +224,7 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
+            initial={h ? { opacity: 0, scaleX: 0 } : { opacity: 1 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
             style={{
@@ -234,7 +237,7 @@ export function Hero() {
           />
 
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={h ? { opacity: 0, y: 10 } : { opacity: 1 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
             style={{
@@ -253,7 +256,7 @@ export function Hero() {
 
           {/* Trust strip */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={h ? { opacity: 0 } : { opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="hero-trust-stats"
@@ -299,7 +302,7 @@ export function Hero() {
 
         {/* Right: lead capture form */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={h ? { opacity: 0, y: 20 } : { opacity: 1 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >

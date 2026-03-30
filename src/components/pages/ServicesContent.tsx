@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useHydrated } from '@/hooks/useHydrated'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
 import { RuledDivider } from '@/components/ui/RuledDivider'
 import { Accordion } from '@/components/ui/Accordion'
@@ -18,6 +19,7 @@ interface ServiceSectionProps {
 }
 
 function ServiceSection({ service, index }: ServiceSectionProps) {
+  const hydrated = useHydrated()
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
   return (
@@ -59,7 +61,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 
         {/* Content */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={hydrated ? { opacity: 0 } : { opacity: 1 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4, delay: 0.1 }}
         >

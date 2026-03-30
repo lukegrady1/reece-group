@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useHydrated } from '@/hooks/useHydrated'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
 import { posts } from '@/data/posts'
 
 export function BlogContent() {
+  const hydrated = useHydrated()
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
@@ -57,7 +59,7 @@ export function BlogContent() {
           {posts.map((post, i) => (
             <motion.div
               key={post.slug}
-              initial={{ opacity: 0, y: 16 }}
+              initial={hydrated ? { opacity: 0, y: 16 } : { opacity: 1 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
               style={{ height: '100%' }}

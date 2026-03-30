@@ -1,12 +1,14 @@
 'use client'
 
 import { useRef } from 'react'
+import { useHydrated } from '@/hooks/useHydrated'
 import { motion, useInView } from 'framer-motion'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
 import { TestimonialCard } from '@/components/ui/TestimonialCard'
 import { testimonials } from '@/data/testimonials'
 
 export function Testimonials() {
+  const hydrated = useHydrated()
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-60px' })
 
@@ -43,7 +45,7 @@ export function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0 }}
+              initial={hydrated ? { opacity: 0 } : { opacity: 1 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useHydrated } from '@/hooks/useHydrated'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
 import { RuledDivider } from '@/components/ui/RuledDivider'
 import { CTABanner } from '@/components/sections/CTABanner'
@@ -36,6 +37,7 @@ const credentials = [
 ]
 
 export function AboutContent() {
+  const hydrated = useHydrated()
   const valuesRef = useRef<HTMLDivElement>(null)
   const credsRef = useRef<HTMLDivElement>(null)
   const valuesInView = useInView(valuesRef, { once: true, margin: '-60px' })
@@ -202,7 +204,7 @@ export function AboutContent() {
           {values.map((v, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0 }}
+              initial={hydrated ? { opacity: 0 } : { opacity: 1 }}
               animate={valuesInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
@@ -259,7 +261,7 @@ export function AboutContent() {
         }}
       >
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={hydrated ? { opacity: 0 } : { opacity: 1 }}
           animate={credsInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.4 }}
           style={{
