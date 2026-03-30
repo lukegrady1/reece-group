@@ -8,8 +8,14 @@ export const metadata: Metadata = {
   title: 'Reece Group LLC | Licensed Electrician — Worcester, MA',
   description: 'Reece Group LLC provides expert electrical services across Massachusetts.',
   icons: {
-    icon: '/favicon.PNG',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
@@ -29,6 +35,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..500;1,9..40,300..500&family=Raleway:wght@700;800&display=swap"
           rel="stylesheet"
         />
+        <noscript>
+          <style>{`
+            [style*="opacity: 0"] { opacity: 1 !important; }
+            [style*="transform"] { transform: none !important; }
+          `}</style>
+        </noscript>
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to content</a>
