@@ -7,15 +7,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://reecegroupllc.com'),
   title: 'Reece Group LLC | Licensed Electrician — Worcester, MA',
   description: 'Reece Group LLC provides expert electrical services across Massachusetts.',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
-    ],
-    apple: '/apple-touch-icon.png',
-  },
   manifest: '/site.webmanifest',
   openGraph: {
     images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
