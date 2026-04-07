@@ -14,7 +14,7 @@ const servicePageLinks: Record<string, string> = {
   'commercial': '/services/commercial-electrician-worcester',
   'panel-upgrades': '/services/panel-upgrade-worcester-ma',
   'ev-charger': '/services/ev-charger-installation-worcester',
-  'lighting': '/services',
+  'lighting': '/services/lighting-installation-worcester',
   'inspections': '/services/electrical-inspection-worcester',
 }
 
