@@ -94,11 +94,24 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
               fontSize: '17px',
               lineHeight: 1.85,
               color: 'var(--color-ink-mid)',
-              marginBottom: '24px',
+              marginBottom: '16px',
             }}
           >
             {service.shortDescription}
           </p>
+          {service.fullDescription && !service.fullDescription.startsWith('//') && (
+            <p
+              style={{
+                fontFamily: '"DM Sans", system-ui, sans-serif',
+                fontSize: '16px',
+                lineHeight: 1.85,
+                color: 'var(--color-ink-mid)',
+                marginBottom: '24px',
+              }}
+            >
+              {service.fullDescription}
+            </p>
+          )}
           <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {service.features.map((feature, i) => (
               <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
@@ -162,7 +175,7 @@ export function ServicesContent() {
             lineHeight: 1.1,
           }}
         >
-          Our Electrical Services
+          Electrical Services in Worcester, MA
         </h1>
         <p
           style={{
@@ -174,6 +187,31 @@ export function ServicesContent() {
           }}
         >
           Licensed, insured, and built to code — every time.
+        </p>
+      </div>
+
+      {/* Intro section */}
+      <div style={{ maxWidth: '780px', margin: '0 auto', padding: '0 24px clamp(32px, 4vw, 56px)' }}>
+        <p
+          style={{
+            fontFamily: '"DM Sans", system-ui, sans-serif',
+            fontSize: '17px',
+            lineHeight: 1.85,
+            color: 'var(--color-ink-mid)',
+            marginBottom: '16px',
+          }}
+        >
+          Reece Group LLC is a licensed electrical contractor (MA License #9036A1) serving Worcester and all of Central Massachusetts. Every job is handled by a master electrician — we don&apos;t subcontract your work to unlicensed crews. From routine outlet installs to full commercial build-outs, we pull all permits, coordinate with your local wire inspector, and stand behind everything we do.
+        </p>
+        <p
+          style={{
+            fontFamily: '"DM Sans", system-ui, sans-serif',
+            fontSize: '17px',
+            lineHeight: 1.85,
+            color: 'var(--color-ink-mid)',
+          }}
+        >
+          Worcester&apos;s housing stock ranges from pre-war triple-deckers with knob-and-tube wiring to new construction in the suburbs. We work on all of it. Whether you need a Federal Pacific panel replaced before your insurance drops you, a Level 2 EV charger circuit run to your garage, or a full lighting retrofit for your commercial space, we provide a written quote upfront with no hidden fees. Call <a href="tel:+15087938788" style={{ color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600 }}>(508) 793-8788</a> for a free estimate or pick a service below to learn more.
         </p>
       </div>
 

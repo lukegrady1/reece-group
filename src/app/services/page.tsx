@@ -4,12 +4,12 @@ import { faqSchema, breadcrumbSchema } from '@/lib/structuredData'
 import { faqs } from '@/data/faqs'
 
 export const metadata: Metadata = {
-  title: 'Electrical Services | Reece Group LLC — Worcester, MA',
-  description: 'From panel upgrades to EV charger installation, Reece Group LLC offers comprehensive electrical services. Licensed & insured. Serving all of Massachusetts.',
+  title: 'Electrical Services Worcester MA | Licensed Electrician — Reece Group LLC',
+  description: 'Residential and commercial electrical services in Worcester, MA. Panel upgrades, EV chargers, rewiring, inspections. Master electrician on every job. Free estimates.',
   alternates: { canonical: 'https://reecegroupllc.com/services' },
   openGraph: {
-    title: 'Electrical Services | Reece Group LLC — Worcester, MA',
-    description: 'From panel upgrades to EV charger installation, Reece Group LLC offers comprehensive electrical services. Licensed & insured. Serving all of Massachusetts.',
+    title: 'Electrical Services Worcester MA | Licensed Electrician — Reece Group LLC',
+    description: 'Residential and commercial electrical services in Worcester, MA. Panel upgrades, EV chargers, rewiring, inspections. Master electrician on every job. Free estimates.',
     type: 'website',
     url: 'https://reecegroupllc.com/services',
     images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
