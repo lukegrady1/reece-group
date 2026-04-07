@@ -4,13 +4,13 @@ export const localBusinessSchema = {
   name: 'Reece Group LLC',
   image: 'https://reecegroupllc.com/og-image.jpg',
   url: 'https://reecegroupllc.com',
-  telephone: '+15087938788', // TODO: Replace with real phone number
+  telephone: '+15087938788',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '[ADDRESS]', // TODO: Replace with real street address
+    streetAddress: '10 Greenfield St',
     addressLocality: 'Worcester',
     addressRegion: 'MA',
-    postalCode: '01601',
+    postalCode: '01604',
     addressCountry: 'US',
   },
   geo: {
@@ -22,11 +22,18 @@ export const localBusinessSchema = {
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '07:00',
-      closes: '18:00',
+      opens: '06:00',
+      closes: '22:00',
     },
   ],
   priceRange: '$$',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '74',
+    bestRating: '5',
+    worstRating: '1',
+  },
   areaServed: 'Massachusetts',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

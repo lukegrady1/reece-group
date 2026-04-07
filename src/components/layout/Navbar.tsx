@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 const navLinks = [
   { label: 'Home',     path: '/' },
   { label: 'Services', path: '/services' },
+  { label: 'Reviews',  path: '/reviews' },
   { label: 'Blog',     path: '/blog' },
   { label: 'About',    path: '/about' },
   { label: 'Contact',  path: '/contact' },
@@ -67,7 +68,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '36px' }} className="nav-desktop">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '44px', marginLeft: '48px' }} className="nav-desktop">
             {navLinks.map(link => {
               const isActive = link.path === '/' ? pathname === '/' : pathname.startsWith(link.path)
               return (

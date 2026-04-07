@@ -37,7 +37,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Col 2: Quick Links */}
+        {/* Col 2: Quick Links + Services */}
         <div>
           <div style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontWeight: 600, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-gold)', marginBottom: '20px' }}>
             Quick Links
@@ -46,6 +46,7 @@ export function Footer() {
             {[
               { label: 'Home', path: '/' },
               { label: 'Services', path: '/services' },
+              { label: 'Reviews', path: '/reviews' },
               { label: 'About', path: '/about' },
               { label: 'Blog', path: '/blog' },
               { label: 'Contact', path: '/contact' },
@@ -54,6 +55,24 @@ export function Footer() {
                 key={link.path}
                 href={link.path}
                 style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '16px', color: 'rgba(248,247,245,0.85)', textDecoration: 'none' }}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <div style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontWeight: 600, fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--color-gold)', marginBottom: '14px', marginTop: '24px' }}>
+            Service Areas
+          </div>
+          <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {[
+              { label: 'Electrician Shrewsbury MA', path: '/electrician-shrewsbury-ma' },
+              { label: 'Electrician Holden MA', path: '/electrician-holden-ma' },
+              { label: 'Electrician Auburn MA', path: '/electrician-auburn-ma' },
+            ].map(link => (
+              <Link
+                key={link.path}
+                href={link.path}
+                style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '14px', color: 'rgba(248,247,245,0.7)', textDecoration: 'none' }}
               >
                 {link.label}
               </Link>
@@ -78,7 +97,7 @@ export function Footer() {
               Worcester, MA · Central Massachusetts
             </span>
             <span style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '16px', color: 'rgba(248,247,245,0.7)' }}>
-              Mon–Fri: 7am – 6pm
+              Mon–Fri: 6am – 10pm
             </span>
           </div>
         </div>

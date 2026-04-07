@@ -1,0 +1,4 @@
+# Force HTTPS and canonical domain
+http://reecegroupllc.com/* https://reecegroupllc.com/:splat 301!
+http://www.reecegroupllc.com/* https://reecegroupllc.com/:splat 301!
+https://www.reecegroupllc.com/* https://reecegroupllc.com/:splat 301!

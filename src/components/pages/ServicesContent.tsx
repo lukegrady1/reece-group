@@ -13,6 +13,15 @@ import { Button } from '@/components/ui/Button'
 import { services } from '@/data/services'
 import { faqs } from '@/data/faqs'
 
+const servicePageLinks: Record<string, string> = {
+  'residential': '/services/residential-electrician-worcester',
+  'commercial': '/services/commercial-electrician-worcester',
+  'panel-upgrades': '/services/panel-upgrade-worcester-ma',
+  'ev-charger': '/services/ev-charger-installation-worcester',
+  'lighting': '',
+  'inspections': '/services/electrical-inspection-worcester',
+}
+
 interface ServiceSectionProps {
   service: typeof services[0]
   index: number
@@ -98,9 +107,16 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
               </li>
             ))}
           </ul>
-          <Link href="/contact" style={{ textDecoration: 'none' }}>
-            <Button variant="primary">Request This Service →</Button>
-          </Link>
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <Link href="/contact" style={{ textDecoration: 'none' }}>
+              <Button variant="primary">Request This Service →</Button>
+            </Link>
+            {servicePageLinks[service.id] && (
+              <Link href={servicePageLinks[service.id]} style={{ textDecoration: 'none' }}>
+                <Button variant="secondary">Learn More →</Button>
+              </Link>
+            )}
+          </div>
         </motion.div>
       </div>
       <RuledDivider />

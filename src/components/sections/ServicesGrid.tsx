@@ -9,6 +9,15 @@ import { ServiceCard } from '@/components/ui/ServiceCard'
 import { Button } from '@/components/ui/Button'
 import { services } from '@/data/services'
 
+const servicePageLinks: Record<string, string> = {
+  'residential': '/services/residential-electrician-worcester',
+  'commercial': '/services/commercial-electrician-worcester',
+  'panel-upgrades': '/services/panel-upgrade-worcester-ma',
+  'ev-charger': '/services/ev-charger-installation-worcester',
+  'lighting': '/services',
+  'inspections': '/services/electrical-inspection-worcester',
+}
+
 export function ServicesGrid() {
   const hydrated = useHydrated()
   const ref = useRef<HTMLDivElement>(null)
@@ -82,7 +91,7 @@ export function ServicesGrid() {
                 description={service.shortDescription}
                 annotationIndex={service.number}
                 annotationText={service.title.split(' ')[0].toUpperCase()}
-                linkTo="/services"
+                linkTo={servicePageLinks[service.id] || '/services'}
               />
             </motion.div>
           ))}

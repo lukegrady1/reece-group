@@ -13,10 +13,13 @@ interface StatCardProps {
 export function StatCard({ number, suffix = '', label, inverted }: StatCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true })
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(number)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isInView || hasAnimated) return
+    setCount(0)
+    setHasAnimated(true)
     const duration = 1500
     const start = Date.now()
     const animate = () => {
@@ -27,7 +30,7 @@ export function StatCard({ number, suffix = '', label, inverted }: StatCardProps
       if (progress < 1) requestAnimationFrame(animate)
     }
     requestAnimationFrame(animate)
-  }, [isInView, number])
+  }, [isInView, number, hasAnimated])
 
   return (
     <div ref={ref} style={{ textAlign: 'center' }}>

@@ -196,14 +196,15 @@ export function Hero() {
             style={{
               fontFamily: '"Raleway", sans-serif',
               fontWeight: 800,
-              fontSize: 'clamp(48px, 7vw, 88px)',
+              fontSize: 'clamp(42px, 6vw, 76px)',
               color: '#F8F7F5',
-              lineHeight: 0.92,
+              lineHeight: 0.95,
               letterSpacing: '-0.03em',
               margin: '20px 0 0',
             }}
           >
-            Reece Group LLC
+            Licensed Electrician in{' '}
+            <span style={{ whiteSpace: 'nowrap' }}>Worcester, MA</span>
           </motion.h1>
 
           <motion.p
@@ -220,7 +221,7 @@ export function Hero() {
               lineHeight: 1.3,
             }}
           >
-            Electrical Contracting
+            Reece Group LLC — Electrical Contracting
           </motion.p>
 
           <motion.div

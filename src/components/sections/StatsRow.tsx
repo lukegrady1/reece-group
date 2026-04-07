@@ -4,7 +4,7 @@ import { StatCard } from '@/components/ui/StatCard'
 const stats = [
   { number: 351, suffix: '', label: 'MA Cities & Towns Served' },
   { number: 500, suffix: '+', label: 'Satisfied Customers' },
-  { number: 70, suffix: '+', label: '5-Star Google Reviews' },
+  { number: 74, suffix: '+', label: '5-Star Google Reviews' },
   { number: 100, suffix: '%', label: 'Licensed & Insured' },
 ]
 

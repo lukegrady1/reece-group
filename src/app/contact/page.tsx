@@ -3,12 +3,12 @@ import { ContactContent } from '@/components/pages/ContactContent'
 import { breadcrumbSchema } from '@/lib/structuredData'
 
 export const metadata: Metadata = {
-  title: 'Contact Reece Group LLC | Free Electrical Estimate',
-  description: 'Get a free estimate from Reece Group LLC. Call, email, or fill out our contact form. Serving Worcester, Central Massachusetts, and all 351 MA cities and towns.',
+  title: 'Free Electrical Estimate Worcester MA | Contact Reece Group LLC',
+  description: 'Request a free electrical estimate in Worcester, MA. Licensed master electrician — no subcontractors. Call (508) 793-8788 or fill out our form. 1-hour response time.',
   alternates: { canonical: 'https://reecegroupllc.com/contact' },
   openGraph: {
-    title: 'Contact Reece Group LLC | Free Electrical Estimate',
-    description: 'Get a free estimate from Reece Group LLC. Call, email, or fill out our contact form. Serving Worcester, Central Massachusetts, and all 351 MA cities and towns.',
+    title: 'Free Electrical Estimate Worcester MA | Contact Reece Group LLC',
+    description: 'Request a free electrical estimate in Worcester, MA. Licensed master electrician — no subcontractors. Call (508) 793-8788 or fill out our form. 1-hour response time.',
     type: 'website',
     url: 'https://reecegroupllc.com/contact',
     images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],

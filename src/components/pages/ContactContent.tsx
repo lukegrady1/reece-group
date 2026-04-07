@@ -61,7 +61,7 @@ const contactRows = [
   { icon: Phone, label: 'Phone', value: '(508) 793-8788', href: 'tel:+15087938788' },
   { icon: Mail, label: 'Email', value: 'reecegroupllc@gmail.com', href: 'mailto:reecegroupllc@gmail.com' },
   { icon: MapPin, label: 'Location', value: 'Worcester, MA · Central Massachusetts', href: undefined },
-  { icon: Clock, label: 'Hours', value: 'Mon–Fri: 7am – 6pm', href: undefined },
+  { icon: Clock, label: 'Hours', value: 'Mon–Fri: 6am – 10pm', href: undefined },
 ]
 
 export function ContactContent() {
