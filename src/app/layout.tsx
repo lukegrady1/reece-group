@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'Reece Group LLC | Licensed Electrician — Worcester, MA',
   description: 'Reece Group LLC provides expert electrical services across Massachusetts.',
   manifest: '/site.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+    ],
+  },
   openGraph: {
     images: [{ url: '/reece-group-og.png', width: 1200, height: 630, alt: 'Reece Group LLC' }],
   },
