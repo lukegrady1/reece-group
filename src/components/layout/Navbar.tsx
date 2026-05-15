@@ -50,11 +50,12 @@ export function Navbar() {
           style={{
             maxWidth: '1100px',
             margin: '0 auto',
-            padding: '0 24px',
+            padding: '0 clamp(16px, 2vw, 24px)',
             height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            gap: 'clamp(12px, 2vw, 24px)',
           }}
         >
           {/* Logo */}
@@ -68,7 +69,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '44px', marginLeft: '48px' }} className="nav-desktop">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(18px, 2.4vw, 44px)', marginLeft: 'clamp(16px, 3vw, 48px)', flexShrink: 0 }} className="nav-desktop">
             {navLinks.map(link => {
               const isActive = link.path === '/' ? pathname === '/' : pathname.startsWith(link.path)
               return (
@@ -248,12 +249,12 @@ export function Navbar() {
       </AnimatePresence>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 960px) {
           .nav-desktop { display: none !important; }
           .nav-hamburger { display: flex !important; }
           .nav-logo { height: 32px !important; }
         }
-        @media (min-width: 769px) {
+        @media (min-width: 961px) {
           .nav-hamburger { display: none !important; }
         }
       `}</style>
