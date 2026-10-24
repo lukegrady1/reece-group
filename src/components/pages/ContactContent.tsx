@@ -1,61 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
-import { useForm } from 'react-hook-form'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
 import { RuledDivider } from '@/components/ui/RuledDivider'
-import { Button } from '@/components/ui/Button'
-
-interface FormData {
-  fullName: string
-  phone: string
-  email: string
-  service: string
-  details: string
-}
-
-const services = [
-  'Residential Electrical',
-  'Commercial Electrical',
-  'Panel Upgrades & Replacements',
-  'EV Charger Installation',
-  'Lighting Installation',
-  'Safety Inspections & Code Compliance',
-]
-
-const inputStyle: React.CSSProperties = {
-  width: '100%',
-  background: 'var(--color-surface)',
-  border: '1px solid var(--color-border)',
-  borderRadius: '2px',
-  padding: '12px 16px',
-  fontFamily: '"DM Sans", system-ui, sans-serif',
-  fontSize: '16px',
-  color: 'var(--color-ink)',
-  boxSizing: 'border-box',
-  outline: 'none',
-  transition: 'border-color 150ms ease, box-shadow 150ms ease',
-}
-
-const labelStyle: React.CSSProperties = {
-  display: 'block',
-  fontFamily: '"DM Sans", system-ui, sans-serif',
-  fontSize: '11px',
-  fontWeight: 600,
-  textTransform: 'uppercase',
-  letterSpacing: '0.15em',
-  color: 'var(--color-ink-mid)',
-  marginBottom: '6px',
-}
-
-const errorStyle: React.CSSProperties = {
-  fontFamily: '"DM Sans", system-ui, sans-serif',
-  fontSize: '11px',
-  color: 'var(--color-danger)',
-  marginTop: '4px',
-}
+import { GhlForm } from '@/components/forms/GhlForm'
 
 const contactRows = [
   { icon: Phone, label: 'Phone', value: '(508) 793-8788', href: 'tel:+15087938788' },
@@ -65,27 +14,6 @@ const contactRows = [
 ]
 
 export function ContactContent() {
-  const [submitted, setSubmitted] = useState(false)
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
-
-  const onSubmit = async (data: FormData) => {
-    try {
-      await fetch('https://formspree.io/f/xwvwkldz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-      setSubmitted(true)
-    } catch {
-      setSubmitted(true)
-    }
-  }
-
-  const fieldStyle = (hasError: boolean): React.CSSProperties => ({
-    ...inputStyle,
-    borderColor: hasError ? 'var(--color-danger)' : 'var(--color-border)',
-  })
-
   return (
     <>
       {/* Breadcrumb */}
@@ -218,116 +146,14 @@ export function ContactContent() {
           </div>
         </div>
 
-        {/* Right: Contact form */}
+        {/* Right: Contact form — GoHighLevel "Website Contact Form"
+            (Full Name, Phone Number, Email Address, Service Needed, Project Details) */}
         <div>
-          {submitted ? (
-            <div
-              style={{
-                background: 'var(--color-surface)',
-                border: '1px solid var(--color-border)',
-                borderTop: '3px solid var(--color-primary)',
-                padding: '48px 40px',
-                textAlign: 'center',
-              }}
-            >
-              <h3 style={{ fontFamily: '"Fraunces", serif', fontWeight: 700, fontSize: '28px', color: 'var(--color-ink)', marginBottom: '16px', letterSpacing: '-0.01em' }}>
-                Request Received
-              </h3>
-              <p style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '17px', color: 'var(--color-ink-mid)', lineHeight: 1.75 }}>
-                Thank you for reaching out. We&apos;ll be in touch within one business day to discuss your project.
-              </p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit(onSubmit)} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {/* Full Name */}
-              <div>
-                <label htmlFor="fullName" style={labelStyle}>Full Name</label>
-                <input
-                  id="fullName"
-                  type="text"
-                  placeholder="Your full name"
-                  className="contact-input"
-                  style={fieldStyle(!!errors.fullName)}
-                  {...register('fullName', { required: 'Full name is required' })}
-                />
-                {errors.fullName && <p style={errorStyle}>{errors.fullName.message}</p>}
-              </div>
-
-              {/* Phone */}
-              <div>
-                <label htmlFor="phone" style={labelStyle}>Phone Number</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  placeholder="(508) 793-8788"
-                  className="contact-input"
-                  style={fieldStyle(!!errors.phone)}
-                  {...register('phone', { required: 'Phone number is required' })}
-                />
-                {errors.phone && <p style={errorStyle}>{errors.phone.message}</p>}
-              </div>
-
-              {/* Email */}
-              <div>
-                <label htmlFor="email" style={labelStyle}>Email Address</label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  className="contact-input"
-                  style={fieldStyle(!!errors.email)}
-                  {...register('email', {
-                    required: 'Email address is required',
-                    pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Please enter a valid email address' },
-                  })}
-                />
-                {errors.email && <p style={errorStyle}>{errors.email.message}</p>}
-              </div>
-
-              {/* Service Needed */}
-              <div>
-                <label htmlFor="service" style={labelStyle}>Service Needed</label>
-                <select
-                  id="service"
-                  className="contact-input"
-                  style={{ ...fieldStyle(!!errors.service), cursor: 'pointer' }}
-                  {...register('service', { required: 'Please select a service' })}
-                >
-                  <option value="">Select a service...</option>
-                  {services.map(s => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
-                {errors.service && <p style={errorStyle}>{errors.service.message}</p>}
-              </div>
-
-              {/* Project Details */}
-              <div>
-                <label htmlFor="details" style={labelStyle}>Project Details <span style={{ color: 'var(--color-ink-faint)', fontWeight: 400 }}>(Optional)</span></label>
-                <textarea
-                  id="details"
-                  rows={5}
-                  placeholder="Describe your project or any questions you have..."
-                  className="contact-input"
-                  style={{ ...inputStyle, resize: 'vertical', minHeight: '120px' }}
-                  {...register('details')}
-                />
-              </div>
-
-              <Button variant="primary" size="lg" type="submit" fullWidth>
-                Send My Request →
-              </Button>
-            </form>
-          )}
+          <GhlForm form="contact" />
         </div>
       </div>
 
       <style>{`
-        .contact-input:focus {
-          border-color: var(--color-primary) !important;
-          box-shadow: 0 0 0 3px var(--color-primary-tint) !important;
-          outline: none !important;
-        }
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
         }

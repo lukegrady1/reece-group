@@ -1,155 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-// Link import removed — uses <a> tags instead
 import { motion } from 'framer-motion'
 import { useHydrated } from '@/hooks/useHydrated'
-import { useForm } from 'react-hook-form'
 import { AnnotationLabel } from '@/components/ui/AnnotationLabel'
-
-interface LeadFormData {
-  name: string
-  phone: string
-  service: string
-}
-
-const services = [
-  'Residential Electrical',
-  'Commercial Electrical',
-  'Panel Upgrades & Replacements',
-  'EV Charger Installation',
-  'Lighting Installation',
-  'Safety Inspections & Code Compliance',
-]
-
-function LeadForm() {
-  const [submitted, setSubmitted] = useState(false)
-  const { register, handleSubmit, formState: { errors } } = useForm<LeadFormData>()
-
-  const onSubmit = async (data: LeadFormData) => {
-    try {
-      await fetch('https://formspree.io/f/xeepqabz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-      setSubmitted(true)
-    } catch {
-      setSubmitted(true)
-    }
-  }
-
-  const inputStyle: React.CSSProperties = {
-    width: '100%',
-    background: '#F8F7F5',
-    border: '1px solid rgba(0,0,0,0.12)',
-    borderRadius: '2px',
-    padding: '13px 16px',
-    fontFamily: '"DM Sans", system-ui, sans-serif',
-    fontSize: '15px',
-    color: 'var(--color-ink)',
-    boxSizing: 'border-box',
-    outline: 'none',
-  }
-
-  const labelStyle: React.CSSProperties = {
-    display: 'block',
-    fontFamily: '"DM Sans", system-ui, sans-serif',
-    fontSize: '11px',
-    fontWeight: 600,
-    textTransform: 'uppercase' as const,
-    letterSpacing: '0.15em',
-    color: 'rgba(248,247,245,0.6)',
-    marginBottom: '6px',
-  }
-
-  const errorStyle: React.CSSProperties = {
-    fontFamily: '"DM Sans", system-ui, sans-serif',
-    fontSize: '11px',
-    color: '#F4A0A0',
-    marginTop: '4px',
-  }
-
-  if (submitted) {
-    return (
-      <div style={{ textAlign: 'center', padding: '40px 0' }}>
-        <div style={{ fontFamily: '"Fraunces", serif', fontWeight: 700, fontSize: '24px', color: 'var(--color-gold)', marginBottom: '12px' }}>
-          Request Received!
-        </div>
-        <p style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '15px', color: 'rgba(248,247,245,0.75)', lineHeight: 1.6 }}>
-          We'll call you back within 1 business day to discuss your project.
-        </p>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {/* Name */}
-      <div>
-        <label style={labelStyle}>Your Name</label>
-        <input
-          type="text"
-          placeholder="John Smith"
-          style={{ ...inputStyle, borderColor: errors.name ? '#F4A0A0' : 'rgba(0,0,0,0.12)' }}
-          {...register('name', { required: 'Required' })}
-        />
-        {errors.name && <p style={errorStyle}>{errors.name.message}</p>}
-      </div>
-
-      {/* Phone */}
-      <div>
-        <label style={labelStyle}>Phone Number</label>
-        <input
-          type="tel"
-          placeholder="(508) 000-0000"
-          style={{ ...inputStyle, borderColor: errors.phone ? '#F4A0A0' : 'rgba(0,0,0,0.12)' }}
-          {...register('phone', { required: 'Required' })}
-        />
-        {errors.phone && <p style={errorStyle}>{errors.phone.message}</p>}
-      </div>
-
-      {/* Service */}
-      <div>
-        <label style={labelStyle}>Service Needed</label>
-        <select
-          style={{ ...inputStyle, cursor: 'pointer', borderColor: errors.service ? '#F4A0A0' : 'rgba(0,0,0,0.12)' }}
-          {...register('service', { required: 'Required' })}
-        >
-          <option value="">Select a service...</option>
-          {services.map(s => <option key={s} value={s}>{s}</option>)}
-        </select>
-        {errors.service && <p style={errorStyle}>{errors.service.message}</p>}
-      </div>
-
-      {/* Submit */}
-      <button
-        type="submit"
-        style={{
-          width: '100%',
-          background: 'var(--color-gold)',
-          color: 'var(--color-ink)',
-          fontFamily: '"DM Sans", system-ui, sans-serif',
-          fontWeight: 700,
-          fontSize: '13px',
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
-          padding: '16px',
-          border: 'none',
-          borderRadius: '2px',
-          cursor: 'pointer',
-          marginTop: '4px',
-        }}
-      >
-        Get My Free Estimate →
-      </button>
-
-      <p style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '11px', color: 'rgba(248,247,245,0.4)', textAlign: 'center', margin: 0 }}>
-        No obligation. We respond within 1 hour.
-      </p>
-    </form>
-  )
-}
+import { GhlForm } from '@/components/forms/GhlForm'
 
 export function Hero() {
   const hydrated = useHydrated()
@@ -342,7 +196,12 @@ export function Hero() {
               </div>
             </div>
 
-            <LeadForm />
+            {/* GoHighLevel "Website Hero Form" (Your Name, Phone Number, Service Needed) */}
+            <GhlForm form="hero" />
+
+            <p style={{ fontFamily: '"DM Sans", system-ui, sans-serif', fontSize: '11px', color: 'rgba(248,247,245,0.4)', textAlign: 'center', margin: '16px 0 0' }}>
+              No obligation. We respond within 1 hour.
+            </p>
           </div>
 
           {/* Below card: or call directly */}
